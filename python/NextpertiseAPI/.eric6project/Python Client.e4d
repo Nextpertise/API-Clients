@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DebuggerProperties SYSTEM "DebuggerProperties-3.9.dtd">
+<!-- eric6 debugger properties file for project Python Client -->
+<!-- This file was generated automatically, do not edit. -->
+<!-- Saved: 2017-01-24, 18:23:02 -->
+<DebuggerProperties version="3.9">
+  <Interpreter>/usr/bin/python3</Interpreter>
+  <DebugClient>/usr/lib/python3/dist-packages/eric6/DebugClients/Python3/DebugClient.py</DebugClient>
+  <Environment override="0"></Environment>
+  <RemoteDebugger on="0">
+    <RemoteHost></RemoteHost>
+    <RemoteCommand></RemoteCommand>
+  </RemoteDebugger>
+  <PathTranslation on="0">
+    <RemotePath></RemotePath>
+    <LocalPath></LocalPath>
+  </PathTranslation>
+  <ConsoleDebugger on="0"></ConsoleDebugger>
+  <Redirect on="1"/>
+  <Noencoding on="0"/>
+</DebuggerProperties>
