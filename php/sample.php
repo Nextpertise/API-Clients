@@ -63,6 +63,41 @@ class MyZipcode {
     }
 }
 
+
+// Usage example
 $zipcodeHandler = new MyZipcode('USERNAME HERE', 'PASSWORD HERE');
-$result = $zipcodeHandler->zipcode('1000AA', 1);
-print_r($result);
+$result = $zipcodeHandler->zipcode($_POST['zipcode'], $_POST['housenr'], $_POST['housenrext']);
+?>
+<html>
+<head>
+  <title>Nextpertise Postcodecheck</title>
+</head>
+<body>
+<table>
+  <tr>
+    <td>Provider</td>
+    <td>Technology</td>
+    <td>Snelheid</td>
+    <td></td>
+    <td></td>
+  </tr>
+<tr>
+<?php
+foreach($result['available'] as $provider => $technologies) {
+    foreach($result['available'][$provider] as $technology => $attributes) {
+?>
+  <tr>
+    <td><?=$provider?></td>
+    <td><?=$technology?></td>
+    <td><?=$result['available'][$provider][$technology]['max_download_str']?>/<?=$result['available'][$provider][$technology]['max_upload_str']?></td>
+    <td><?=$result['available'][$provider][$technology]['distance']?></td>
+  </tr>
+<?php
+    }
+}
+?>
+</tr>
+</table>
+</form>
+</body>
+</html>

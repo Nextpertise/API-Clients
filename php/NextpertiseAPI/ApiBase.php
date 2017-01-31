@@ -1,5 +1,5 @@
 <?php 
-    
+
 namespace NextpertiseAPI;
 
 use JsonRPC\Client;
@@ -27,10 +27,12 @@ class ApiBase {
         $this->client = new Client($url . '/' . $this->endpoint);
         $this->client->getHttpClient()
             ->withUsername($this->username)
-            ->withPassword($this->password);
+            ->withPassword($this->password)
+            ->withTimeout(360);
     }
     
     function __call($name, $arguments) {
+        set_time_limit(360);
         if(isset($arguments) && is_array($arguments)) {
             if(isset($arguments[0]) && is_array($arguments[0])) {
                 return $this->client->execute($name, $arguments[0]);       

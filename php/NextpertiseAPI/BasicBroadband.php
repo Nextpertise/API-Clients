@@ -11,6 +11,6 @@ class BasicBroadband {
     }
     
     function zipcode($zipcode, $housenr, $housenrext = '') {
-        return $this->client->zipcode(['zipcode' => $zipcode, 'housenr' => $housenr, 'housenrext' => $housenrext]);
+        return $this->client->zipcode(['zipcode' => $zipcode, 'housenr' => (int)$housenr, 'housenrext' => $housenrext]);
     }
 }
