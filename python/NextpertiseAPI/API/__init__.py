@@ -32,12 +32,13 @@ class ApiBase(object):
         """
         Constructor.
         
-        Uses :param:auth to login and obtain an authentication token.
-        This token is expected to be a custom HTTP header.
-        The token is passed to the http client to authenticate with.
+        The authenticator is expected to provide an authentication
+        token. This token is expected to be a custom HTTP header.
+        The token is passed to the HTTP client to authenticate with.
         
-        The :param:url defines which API to access. It is based on
-        either the PROD_URL or TEST_URL constants defined in this class.
+        :param Authenticate auth: The authentication object to use.
+        :param str url: Defines which API to access.
+        :rtype: None
         """
         
         self.auth = auth
@@ -52,11 +53,16 @@ class ApiBase(object):
         """
         Call the server API method.
         
-        Calls the API :param:method with the list of key/value
-        pairs in :param:kwargs as its parameters.
+        Calls the API ``method`` with the list of key/value
+        pairs in ``kwargs`` as its parameters.
         Returns whatever the API method returns.
+        
+        :param str method: Name of the remote function to call.
+        :param dict kwargs: Dict with key/value pairs that are the
+            named parameters for the method call.
         """
         
         return self.client.call(method, None, kwargs)
 
 from .basicbroadband import BasicBroadband
+from .broadband import Broadband

@@ -22,9 +22,8 @@ class BasicBroadband(ApiBase):
         """
         Constructor.
         
-        Passes the :param:auth authentication object for use as the authentication method.
-        
-        The :param:test parameter selects between the production and test versions of the API.
+        :param Authenticate auth: The authentication object to use.
+        :param bool test: Select between production and test versions of the API.
         """
         
         url = self.TEST_URL if test else self.PROD_URL
@@ -36,15 +35,11 @@ class BasicBroadband(ApiBase):
         The zipcode() method.
         
         Documented at http://api.nextpertise.nl/documentation/broadband/basic/zipcode.html.
-        
-        :param:zipcode - Must be a valid Dutch postcode.
-        
-        :param:housenr - Must be a valid house number within the zipcode area.
-        
-        :param:housenrext - Optional, needed when :param:zipcode with :param:housenr are not
-        sufficient to uniquely identify a location.
-        
-        Returns the contents of the 'result' key in the json output.
+
+        :param str zipcode: Valid Dutch postcode.
+        :param int housenr: Must be a valid house number within the zipcode area.
+        :param str housenrext: Optional, needed when ``zipcode`` with ``housenr`` are not
+            sufficient to uniquely identify a location.
         
         Consult the webpage for the json-schema schemas defining legal input and output format.
         """
